@@ -1,10 +1,10 @@
 # Enterprise Workflow API
 
-A lightweight RESTful backend built with C# and .NET 8, simulating an aircraft component maintenance tracking system. It models operational workflow states (Pending, In Progress, Completed) and includes structured logging and automated CI builds.
+A lightweight RESTful backend built with C# and .NET 10, simulating an aircraft component maintenance tracking system. It models operational workflow states (Pending, In Progress, Completed) and includes structured logging and automated CI builds.
 
 ## Tech Stack
 
-* **Runtime / Framework:** .NET 8 (ASP.NET Core Web API)
+* **Runtime / Framework:** .NET 10 (ASP.NET Core Web API)
 * **Data Access:** Entity Framework Core (configured with an In-Memory provider for local development)
 * **Logging:** Serilog (Console sink with structured message templates)
 * **CI/CD:** GitHub Actions (automated build & test workflow)
@@ -27,7 +27,7 @@ A lightweight RESTful backend built with C# and .NET 8, simulating an aircraft c
 ## Getting Started
 
 ### Prerequisites
-* [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+* [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 
 ### Run Locally
 ```bash

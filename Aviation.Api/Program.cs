@@ -1,5 +1,6 @@
+using Aviation.Api.Endpoints;
 using Aviation.Api.Data;
-using Aviation.Api.Models;
+using Aviation.Api.Entities;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -17,7 +18,6 @@ builder.Services.AddDbContext<AviationDbContext>(options =>
     options.UseInMemoryDatabase("AviationWorkflowDb"));
 
 // Add services to the container.
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -34,7 +34,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapMaintenanceTaskEndpoints();
 
 // Auto-seed μερικά αρχικά δεδομένα (mock data) για να φαίνεται γεμάτη η εφαρμογή μόλις ανοίξει
 using (var scope = app.Services.CreateScope())

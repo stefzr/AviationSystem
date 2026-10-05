@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Aviation.Api.Models;
+using Aviation.Api.Entities;
 
 namespace Aviation.Api.Data
 {
