@@ -21,6 +21,7 @@ builder.Services.AddDbContext<AviationDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAuthorization();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -35,6 +36,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapMaintenanceTaskEndpoints();
+app.MapStatusEndpoints();
+app.MapPriorityEndpoints();
 
 // Auto-seed μερικά αρχικά δεδομένα (mock data) για να φαίνεται γεμάτη η εφαρμογή μόλις ανοίξει
 using (var scope = app.Services.CreateScope())
