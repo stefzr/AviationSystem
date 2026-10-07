@@ -34,7 +34,10 @@ public static class MaintenanceTaskEndpoints
             
             // Το Results.Ok() πακετάρει τη λίστα σε μορφή JSON και βάζει HTTP Status 200 (Επιτυχία).
             return Results.Ok(tasks);
-        });
+        })
+        .WithTags("Maintenance Tasks")
+        .WithSummary("Retrieves all maintenance tasks")
+        .Produces<List<MaintenanceTask>>(StatusCodes.Status200OK);
 
         // ---------------------------------------------------------
         // ENDPOINT 2: GET BY ID (Φέρνει μία συγκεκριμένη εργασία)
@@ -50,7 +53,11 @@ public static class MaintenanceTaskEndpoints
             // Αν το task βρέθηκε (δεν είναι null), επιστρέφουμε 200 OK με τα δεδομένα.
             // Αν είναι null (δεν βρέθηκε τέτοιο id), επιστρέφουμε 404 Not Found.
             return task is not null ? Results.Ok(task) : Results.NotFound();
-        });
+        })
+        .WithTags("Maintenance Tasks")
+        .WithSummary("Retrieves a maintenance task by ID")
+        .Produces<MaintenanceTask>(StatusCodes.Status200OK)
+        .Produces(StatusCodes.Status404NotFound);
 
         // ---------------------------------------------------------
         // ENDPOINT 3: POST (Δημιουργεί νέα εργασία συντήρησης)
@@ -71,6 +78,10 @@ public static class MaintenanceTaskEndpoints
             // Β. Λέει στον χρήστη σε ποιο URL μπορεί να βρει την εγγραφή (Location header).
             // Γ. Επιστρέφει το ίδιο το αντικείμενο με συμπληρωμένο πλέον το Id του.
             return Results.Created($"/api/MaintenanceTasks/{task.Id}", task);
-        });
+        })
+        .WithTags("Maintenance Tasks")
+        .WithSummary("Creates a new maintenance task")
+        .Produces<MaintenanceTask>(StatusCodes.Status201Created)
+        .Produces(StatusCodes.Status400BadRequest);
     }
 }
