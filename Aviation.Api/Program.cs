@@ -71,9 +71,9 @@ using (var scope = app.Services.CreateScope())
     if (!context.Priorities.Any())
     {
         context.Priorities.AddRange(
-            new Priority { Name = "Low", CreatedOn = seededAt, CreatedBy = "System Seed", LastUpdatedOn = seededAt, LastUpdatedBy = "System Seed" },
-            new Priority { Name = "Medium", CreatedOn = seededAt, CreatedBy = "System Seed", LastUpdatedOn = seededAt, LastUpdatedBy = "System Seed" },
-            new Priority { Name = "Critical", CreatedOn = seededAt, CreatedBy = "System Seed", LastUpdatedOn = seededAt, LastUpdatedBy = "System Seed" }
+            new Priority { Name = "Low", Severity = 1, CreatedOn = seededAt, CreatedBy = "System Seed", LastUpdatedOn = seededAt, LastUpdatedBy = "System Seed" },
+            new Priority { Name = "Medium", Severity = 2, CreatedOn = seededAt, CreatedBy = "System Seed", LastUpdatedOn = seededAt, LastUpdatedBy = "System Seed" },
+            new Priority { Name = "Critical", Severity = 3, CreatedOn = seededAt, CreatedBy = "System Seed", LastUpdatedOn = seededAt, LastUpdatedBy = "System Seed" }
         );
     }
 

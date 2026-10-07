@@ -2,6 +2,10 @@
 
 Όλες οι σημαντικές αλλαγές στο AviationSystem API θα καταγράφονται σε αυτό το αρχείο.
 
+## [0.3.0] - 2026-10-08
+### Added
+- Προσθήκη της υποχρεωτικής, μοναδικής ιδιότητας `Severity` στο `Priority`, με τιμές 1–3 για Low, Medium και Critical.
+
 ## [0.2.0] - 2026-10-07
 ### Added
 - Εμπλουτισμός του Swagger UI με metadata (`.WithTags()`, `.WithSummary()`, `.Produces()`) για σαφή ομαδοποίηση και περιγραφή των response schemas.
