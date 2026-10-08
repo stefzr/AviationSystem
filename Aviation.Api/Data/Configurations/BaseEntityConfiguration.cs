@@ -14,5 +14,18 @@ public abstract class BaseEntityConfiguration<TBase> : IEntityTypeConfiguration<
         // Ορίζουμε κανόνες για τα κοινά πεδία ελέγχου (audit)
         builder.Property(e => e.CreatedBy).HasMaxLength(100);
         builder.Property(e => e.LastUpdatedBy).HasMaxLength(100);
+
+        builder.Property(e => e.CreatedOn)
+            .HasConversion(
+                value => value.ToUniversalTime(),
+                value => DateTime.SpecifyKind(value, DateTimeKind.Utc));
+
+        builder.Property(e => e.LastUpdatedOn)
+            .HasConversion(
+                value => value.ToUniversalTime(),
+                value => DateTime.SpecifyKind(value, DateTimeKind.Utc));
+
+        builder.Property(e => e.RowVersion)
+            .IsRowVersion();
     }
 }

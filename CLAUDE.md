@@ -1,8 +1,8 @@
 # AI Coding Guidelines for AviationSystem
 
 1. **Architecture**: We use .NET 10 Minimal APIs. DO NOT generate MVC Controllers.
-2. **Entities**: All domain models must inherit from `BaseEntity`. 
-3. **Database**: Use Entity Framework Core 10. Entity configurations must be placed in the `Data/Configurations` folder using `IEntityTypeConfiguration`.
+2. **Entities**: All domain models must inherit from `BaseEntity`, including its `RowVersion` concurrency token for optimistic concurrency.
+3. **Database**: Use Entity Framework Core 10. Entity configurations must be placed in the `Data/Configurations` folder using `IEntityTypeConfiguration`. Configure `CreatedOn` and `LastUpdatedOn` conversions to persist UTC values and materialize them as UTC.
 
 ## AI Workflow & Planning (CRITICAL)
 Every task or feature MUST strictly follow this 5-step lifecycle. Do NOT skip any step.
