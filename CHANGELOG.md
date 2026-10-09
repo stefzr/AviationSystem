@@ -5,6 +5,18 @@
 είναι χρήσιμο και σε προγραμματιστές που ξεκινούν τώρα με .NET και Entity
 Framework Core (EF Core).
 
+## [0.8.0] - 2026-10-12
+### Changed
+- Μεταφέρθηκε η αρχικοποίηση της βάσης από το `Program.cs` στο
+  `Aviation.Api/Extensions/DatabaseInitializer.cs`. Το πρόγραμμα εκκίνησης
+  καλεί πλέον μία μέθοδο για να ελέγξει τη σύνδεση με τον SQL Server, να
+  εφαρμόσει migrations και να φορτώσει τα αρχικά δεδομένα, κάνοντας τον
+  κεντρικό κώδικα πιο σύντομο και ευκολότερο στη συντήρηση.
+- Διατηρήθηκαν τα endpoint mappings στο `Program.cs` και οι ορισμοί των
+  endpoints στα αρχεία `MaintenanceTaskEndpoints.cs`, `StatusEndpoints.cs`
+  και `PriorityEndpoints.cs`. Τα αρχεία αυτά είχαν ήδη static extension
+  methods που ομαδοποιούν τις διαδρομές ανά τύπο πόρου.
+
 ## [0.7.0] - 2026-10-08
 ### Changed
 - Επεκτάθηκε το changelog για να εξηγεί πιο αναλυτικά τις αλλαγές κάθε
