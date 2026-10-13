@@ -87,3 +87,17 @@ dotnet run --project Aviation.Api
 
 To stop SQL Server while retaining database data, run `docker compose down`.
 To also remove the local database volume, run `docker compose down --volumes`.
+
+## Frontend
+
+The Angular frontend is located in `Aviation.Spa` and uses DevExtreme for UI
+components. It requires Node.js 24.15 or later and npm. Install its npm
+dependencies and start the development server:
+
+```bash
+cd Aviation.Spa
+npm install
+npm start
+```
+
+The development server prints its local URL after startup.

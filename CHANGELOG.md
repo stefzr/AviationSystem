@@ -5,6 +5,17 @@
 είναι χρήσιμο και σε προγραμματιστές που ξεκινούν τώρα με .NET και Entity
 Framework Core (EF Core).
 
+## [0.10.0] - 2026-10-13
+### Added
+- Δημιουργήθηκε το αρχικό Angular 22 frontend στον φάκελο `Aviation.Spa`, με
+  routing και SCSS. Το frontend έχει δικό του `package.json` και lock file,
+  ώστε οι εξαρτήσεις JavaScript να παραμένουν χωριστές από το .NET API.
+- Προστέθηκαν τα `devextreme` και `devextreme-angular` έκδοσης 26.1.5 ως
+  εξαρτήσεις του frontend και ενεργοποιήθηκε το Material Blue Light theme
+  μέσω του `angular.json`.
+- Προστέθηκε ενότητα Frontend στο README με τις βασικές εντολές για
+  εγκατάσταση εξαρτήσεων και εκκίνηση του development server.
+
 ## [0.9.0] - 2026-10-12
 ### Added
 - Οι εργασίες συντήρησης συνδέονται πλέον με τις εγγραφές `Status` και
