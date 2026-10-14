@@ -5,6 +5,21 @@
 είναι χρήσιμο και σε προγραμματιστές που ξεκινούν τώρα με .NET και Entity
 Framework Core (EF Core).
 
+## [0.11.0] - 2026-10-14
+### Added
+- Προστέθηκε CORS policy `AllowAviationSpa` στο API, η οποία επιτρέπει
+  requests από το Angular development origin `http://localhost:4200` με
+  οποιαδήποτε HTTP μέθοδο και headers. Δεν ενεργοποιεί cross-origin
+  credentials.
+- Προστέθηκαν TypeScript interfaces για `MaintenanceTask`, `Status` και
+  `Priority`, ώστε τα δεδομένα JSON που λαμβάνει το frontend να έχουν
+  δηλωμένους τύπους. Τα IDs και το `severity` χρησιμοποιούν JavaScript
+  `number`, οι ημερομηνίες `string` και το `RowVersion` αναπαρίσταται ως
+  base64 `string`.
+- Προστέθηκε το Angular `MaintenanceTaskService` με GET μεθόδους για tasks,
+  statuses και priorities. Το `provideHttpClient()` ενεργοποιεί το Angular
+  `HttpClient`, ενώ το API base URL ορίζεται κεντρικά στο `api.config.ts`.
+
 ## [0.10.0] - 2026-10-13
 ### Added
 - Δημιουργήθηκε το αρχικό Angular 22 frontend στον φάκελο `Aviation.Spa`, με

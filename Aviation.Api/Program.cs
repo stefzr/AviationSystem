@@ -20,6 +20,17 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AviationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAviationSpa", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -48,6 +59,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAviationSpa");
 
 app.UseAuthorization();
 
