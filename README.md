@@ -100,4 +100,7 @@ npm install
 npm start
 ```
 
-The development server prints its local URL after startup.
+The development server prints its local URL after startup. With the API running
+locally, open `/maintenance-tasks` to view maintenance tasks in the DevExtreme
+DataGrid. The grid reads tasks and lookup values from the API and provides
+sorting, filtering, and paging.

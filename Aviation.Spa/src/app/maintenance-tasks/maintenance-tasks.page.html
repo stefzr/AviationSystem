@@ -1,0 +1,65 @@
+<main class="page">
+  <header class="page__header">
+    <div>
+      <p class="page__eyebrow">Aviation Workflow</p>
+      <h1>Maintenance Tasks</h1>
+      <p class="page__description">
+        Review aircraft maintenance tasks, statuses, and priorities.
+      </p>
+    </div>
+  </header>
+
+  @if (store.isLoading()) {
+    <p class="page__state" role="status">Loading maintenance tasks…</p>
+  } @else if (store.errorMessage(); as message) {
+    <section class="page__error" role="alert">
+      <p>{{ message }}</p>
+      <button class="page__retry" type="button" (click)="store.loadData()">
+        Try again
+      </button>
+    </section>
+  } @else {
+    <dx-data-grid
+      [dataSource]="store.tasks()"
+      keyExpr="id"
+      [showBorders]="true"
+      [columnAutoWidth]="true"
+      noDataText="No maintenance tasks found."
+    >
+      <dxo-data-grid-sorting mode="multiple" />
+      <dxo-data-grid-filter-row [visible]="true" />
+      <dxo-data-grid-paging [pageSize]="10" />
+      <dxo-data-grid-pager
+        [allowedPageSizes]="store.allowedPageSizes"
+        [showInfo]="true"
+        [showPageSizeSelector]="true"
+        [visible]="true"
+      />
+
+      <dxi-data-grid-column
+        dataField="aircraftTailNumber"
+        caption="Aircraft Tail Number"
+      />
+      <dxi-data-grid-column
+        dataField="aircraftRegistration"
+        caption="Registration"
+      />
+      <dxi-data-grid-column dataField="component" caption="Component" />
+      <dxi-data-grid-column dataField="description" caption="Description" />
+      <dxi-data-grid-column dataField="statusId" caption="Status">
+        <dxo-data-grid-lookup
+          [dataSource]="store.statuses()"
+          valueExpr="id"
+          displayExpr="name"
+        />
+      </dxi-data-grid-column>
+      <dxi-data-grid-column dataField="priorityId" caption="Priority">
+        <dxo-data-grid-lookup
+          [dataSource]="store.priorities()"
+          valueExpr="id"
+          displayExpr="name"
+        />
+      </dxi-data-grid-column>
+    </dx-data-grid>
+  }
+</main>
